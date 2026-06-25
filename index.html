@@ -7,21 +7,16 @@
 <style>
   :root {
     --bg: #ffffff;
-    --surface: #f6f7f9;
+    --surface: #f7f7f5;
     --text: #1a1a1a;
     --muted: #6b6b6b;
     --faint: #9a9a9a;
-    --accent: #2f6db0;
-    --hero-bg: #eef1f6;
-    --hero-border: #dde3ec;
-    --hero-role: #3f4a59;
-    --frame: #1f4e79;
-    --nav-soft: #eef1f6;
-    --nav-text: #3a5876;
+    --accent: #2563a8;
+    --accent-strong: #0f2a43;
+    --accent-soft: #e9f0f8;
     --border: #e6e6e2;
-    --tag-bg: #eef0f3;
-    --tag-text: #555a62;
-    --maxw: 720px;
+    --tag-bg: #eef1f6;
+    --maxw: 680px;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -31,60 +26,56 @@
       --muted: #a0a0a0;
       --faint: #777;
       --accent: #6ba4e8;
-      --hero-bg: #1b2530;
-      --hero-border: #2c3a4a;
-      --hero-role: #c2cdda;
-      --frame: #3a6ea5;
-      --nav-soft: #1b2530;
-      --nav-text: #9bb8d6;
+      --accent-strong: #14334f;
+      --accent-soft: #1b2a3a;
       --border: #2c2e34;
       --tag-bg: #23262d;
-      --tag-text: #b4b6ba;
     }
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
-    max-width: var(--maxw); margin: 0 auto; padding: 3rem 2rem;
+    max-width: var(--maxw); margin: 0 auto; padding: 3.5rem 3rem;
     line-height: 1.7; color: var(--text); background: var(--bg);
     -webkit-font-smoothing: antialiased;
   }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
- 
+
   /* ---- Hero ---- */
   header.hero {
     display: flex; align-items: center; gap: 22px;
-    background: var(--hero-bg); border: 3px solid var(--frame);
+    background: var(--accent-strong);
     border-radius: 16px; padding: 1.75rem;
   }
   .avatar {
     width: 100px; height: 100px; border-radius: 50%; flex-shrink: 0;
-    object-fit: cover; border: 1px solid var(--border);
-    background: var(--bg);
+    object-fit: cover; border: 2px solid rgba(255,255,255,0.22);
+    background: rgba(255,255,255,0.10);
     display: flex; align-items: center; justify-content: center;
-    font-size: 27px; font-weight: 600; color: var(--muted);
+    font-size: 27px; font-weight: 600; color: #cfe2f7;
   }
-  .hero h1 { margin: 0 0 4px; font-size: 1.55rem; font-weight: 600; letter-spacing: -0.01em; color: var(--text); }
-  .hero .role { margin: 0 0 12px; font-size: 0.95rem; color: var(--hero-role); line-height: 1.5; font-weight: 500; }
+  .hero h1 { margin: 0 0 4px; font-size: 1.55rem; font-weight: 600; letter-spacing: -0.01em; color: #ffffff; }
+  .hero .role { margin: 0 0 12px; font-size: 0.95rem; color: #c3d6ea; line-height: 1.5; font-weight: 500; }
   .hero .links { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.84rem; }
-  .hero .links span { color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
-  .hero .links a { color: var(--accent); display: inline-flex; align-items: center; gap: 6px; }
- 
+  .hero .links span { color: #8fb6dd; display: inline-flex; align-items: center; gap: 6px; }
+  .hero .links a { color: #9ec5ef; display: inline-flex; align-items: center; gap: 6px; }
+  .hero .links a:hover { color: #cfe2f7; text-decoration: none; }
+
   /* ---- Nav ---- */
   nav {
     position: sticky; top: 0; z-index: 10;
     display: flex; gap: 6px; flex-wrap: wrap;
-    padding: 8px; margin: 1.25rem 0;
-    background: var(--nav-soft); border: 3px solid var(--frame); border-radius: 10px;
+    padding: 12px 0; margin: 1.25rem 0;
+    background: var(--bg); border-bottom: 1px solid var(--border);
   }
   nav a {
-    font-size: 0.9rem; color: var(--nav-text); padding: 7px 14px;
-    border-radius: 7px; transition: background 0.15s, color 0.15s;
+    font-size: 0.9rem; color: var(--muted); padding: 6px 13px;
+    border-radius: 8px; transition: background 0.15s, color 0.15s;
   }
-  nav a:hover { background: var(--accent); color: #ffffff; text-decoration: none; }
- 
+  nav a:hover { background: var(--accent-soft); color: var(--accent); text-decoration: none; }
+
   /* ---- Sections ---- */
   section { padding: 1.75rem 0 0.5rem; }
   section + section { border-top: 1px solid var(--border); }
@@ -96,16 +87,16 @@
     content: ""; width: 4px; height: 19px; flex-shrink: 0;
     background: var(--accent); border-radius: 2px;
   }
- 
+
   .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-  .tag { font-size: 0.78rem; padding: 4px 11px; border-radius: 8px; background: var(--tag-bg); color: var(--tag-text); }
- 
+  .tag { font-size: 0.78rem; padding: 4px 11px; border-radius: 8px; background: var(--tag-bg); color: var(--muted); }
+
   /* ---- Publications ---- */
   .pub { display: flex; gap: 14px; padding: 12px 0; }
   .pub + .pub { border-top: 1px solid var(--border); }
   .pub .year { font-size: 0.85rem; font-weight: 600; color: var(--accent); min-width: 42px; flex-shrink: 0; }
   .pub p { margin: 0; font-size: 0.92rem; line-height: 1.6; }
- 
+
   /* ---- Code ---- */
   .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
   .card {
@@ -116,13 +107,13 @@
   .card h3 { margin: 0 0 6px; font-size: 0.95rem; font-weight: 600; }
   .card h3 a { color: var(--accent); }
   .card p { margin: 0; font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
- 
+
   /* ---- Contact ---- */
   .contact p { margin: 0 0 6px; font-size: 0.95rem; color: var(--faint); font-weight: 300; }
- 
+
   footer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
            text-align: center; color: var(--faint); font-size: 0.82rem; }
- 
+
   @media (max-width: 560px) {
     body { padding: 2rem 1.25rem; }
     header.hero { flex-direction: column; text-align: center; }
@@ -131,7 +122,7 @@
 </style>
 </head>
 <body>
- 
+
 <header class="hero">
   <img class="avatar" src="pic_profile.JPG" alt="Oscar Arandes Tejerina">
   <div>
@@ -143,27 +134,27 @@
     </div>
   </div>
 </header>
- 
+
 <nav>
   <a href="#about">About</a>
   <a href="#publications">Publications</a>
   <a href="#code">Code</a>
   <a href="#contact">Contact</a>
 </nav>
- 
+
 <section id="about">
   <h2>About me</h2>
   <p>Physicist working on open quantum systems and quantum sensing, with a strong background in mathematical modelling and analytical problem-solving. Experienced educator with strong communication skills, interested in applying quantitative and analytical methods beyond academia, particularly in data science and machine learning. Trained also as a classical musician, which has shaped my approach to discipline, collaboration, and creativity.</p>
   <div class="tags">
-    <span class="tag">Data science</span>
-    <span class="tag">Mathematical modelling</span>
-    <span class="tag">Machine learning</span>
     <span class="tag">Quantum sensing</span>
     <span class="tag">Open quantum systems</span>
+    <span class="tag">Machine learning</span>
+    <span class="tag">Data science</span>
+    <span class="tag">Mathematical modelling</span>
     <span class="tag">Classical music</span>
   </div>
 </section>
- 
+
 <section id="publications">
   <h2>Publications</h2>
   <div class="pub">
@@ -175,7 +166,7 @@
     <p>Authors, <em>Another publication title</em>, <a href="#">Journal Name (2023)</a>.</p>
   </div>
 </section>
- 
+
 <section id="code">
   <h2>Data science projects</h2>
   <div class="projects">
@@ -189,7 +180,7 @@
     </div>
   </div>
 </section>
- 
+
 <section id="contact">
   <h2>Contact</h2>
   <div class="contact">
@@ -197,8 +188,8 @@
     <p>Room A4:3009 | Stockholm University.</p>
   </div>
 </section>
- 
+
 <footer>© 2026 Oscar Arandes Tejerina.</footer>
- 
+
 </body>
 </html>
